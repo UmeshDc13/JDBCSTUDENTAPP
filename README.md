@@ -1,7 +1,7 @@
 # JDBC Employee Management System
 
-A simple **Java console application** that performs **CRUD operations** using **JDBC with MySQL**.  
-This project is built to understand database connectivity and basic operations in Java.
+A simple **Java + JDBC console-based CRUD application** to manage employees stored in a MySQL database.  
+Built to practice **Core Java**, **JDBC**, **MySQL**, and **menu-driven applications**.
 
 ---
 
@@ -9,11 +9,13 @@ This project is built to understand database connectivity and basic operations i
 
 - Add new Employee  
 - Update Employee Salary  
-- Delete Employee  
+- Delete Employee by ID  
 - View All Employees  
+- Console-based menu navigation  
+- MySQL database integration using JDBC  
 
-Each employee record contains:
-- Employee ID  
+**Employee Fields:**
+- EID  
 - Name  
 - Location  
 - Department  
@@ -21,35 +23,35 @@ Each employee record contains:
 
 ---
 
-## 🛠 Tech Stack
+## 🛠️ Tech Stack
 
-- **Java (JDK 17)**  
-- **JDBC (Java Database Connectivity)**  
-- **MySQL Database**  
-- **MySQL Connector/J**  
-- **VS Code / Eclipse**
+| Component | Technology |
+|----------|------------|
+| Language | Java (JDK 17) |
+| Database | MySQL |
+| Driver | MySQL Connector/J |
+| IDE | VS Code / Eclipse |
+| Build Type | Manual (No Maven/Gradle) |
 
 ---
 
-## 🗂 Project Structure
+## 📂 Project Structure
 
-src/
-└── com
-└── jdbc
-└── project
-├── DBConnection.java
-└── MenuEmployeeApp.java
-lib/
-└── mysql-connector-j-<version>.jar
+```text
+JDBCSTUDENTAPP/
+ ├── src/
+ │    └── com/jdbc/project/
+ │         ├── DBConnection.java
+ │         └── MenuEmployeeApp.java
+ ├── lib/
+ │    └── mysql-connector-j-8.x.x.jar
+ ├── README.md
+ └── .gitignore
+🧩 MySQL Database Setup
+Run these SQL commands:
 
-pgsql
+sql
 Copy code
-
----
-
-## 🧩 Database Setup (MySQL)
-
-```sql
 CREATE DATABASE JDBCSTUDENTAPP;
 
 USE JDBCSTUDENTAPP;
@@ -61,26 +63,31 @@ CREATE TABLE employee (
     dept VARCHAR(40),
     salary DOUBLE
 );
-Update DB details inside DBConnection.java:
+Update your DB credentials in DBConnection.java:
 
 java
 Copy code
 private static final String URL = "jdbc:mysql://127.0.0.1:3306/JDBCSTUDENTAPP";
 private static final String USER = "root";
-private static final String PASSWORD = "SQL123";  // Your MySQL password
+private static final String PASSWORD = "your_password";
 ▶️ How to Run
-Import project in VS Code or Eclipse
+Option 1 — Using VS Code RUN button
+Open project folder in VS Code
 
-Add MySQL Connector/J (.jar) to Referenced Libraries
+Install Java Extension Pack
 
-Make sure MySQL is running
+Open MenuEmployeeApp.java
 
-Run the main file:
+Click Run above the main method
 
+Option 2 — Using Terminal (Windows)
+bash
 Copy code
-MenuEmployeeApp.java
-📌 Sample Menu
-mathematica
+javac -cp "lib/mysql-connector-j-8.x.x.jar;src" src/com/jdbc/project/*.java
+
+java -cp "lib/mysql-connector-j-8.x.x.jar;src" com.jdbc.project.MenuEmployeeApp
+📌 Sample Output
+text
 Copy code
 === EMPLOYEE MENU ===
 1. Insert Employee
@@ -89,56 +96,19 @@ Copy code
 4. View All Employees
 5. Exit
 Enter choice:
-📚 Learning Outcomes
-Java + MySQL integration
+💡 Future Enhancements
+Search employee by ID
 
-JDBC driver usage
+Update all fields (name, dept, location)
 
-CRUD operations
+Input validation
 
-PreparedStatement
+Move to Spring Boot + Hibernate
 
-Console-based menu systems
+Add GUI using JavaFX/Swing
 
-🔮 Future Enhancements
-Add search by Employee ID
+👨‍💻 Author
+Umesh DC
+Java Developer | CSE
 
-Validate inputs
-
-Add GUI (JavaFX / Swing)
-
-Move to Spring Boot + JPA
-
-yaml
-Copy code
-
----
-
-# ✅ **STEP 3 — Save the file**
-
-Press:
-
-Ctrl + S
-
-yaml
-Copy code
-
----
-
-# ✅ **STEP 4 — Push README to GitHub**
-
-Open VS Code terminal:
-
-### Add README:
-git add README.md
-
-shell
-Copy code
-
-### Commit:
-git commit -m "Added README documentation"
-
-shell
-Copy code
-
-### Push:
+GitHub: https://github.com/UmeshDc13
